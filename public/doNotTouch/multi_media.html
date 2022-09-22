@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eupheus Learning</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+
+  <!-- Fantasy -->
+  <link href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css" rel="stylesheet">
+</head>
+<style type="text/css">
+a{
+  color: white;
+  background-color: #6611f2;
+  opacity: 0.8;
+  transition: 0.5s ease-in-out;
+}
+a:hover{
+  text-decoration: none;
+  color: white;
+  background-color: #6611f2;
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px white;
+}
+body{
+  margin: 0 0.5em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://skool.ai/bucket/PreSchoolURL/Zoom/bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* modal */
+/* =============================================== */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  
+  justify-content: center;
+  align-items: center;
+display: none;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.575);
+}
+
+
+
+.modal {
+  width: 60rem;
+  padding: 4rem 2rem;
+  border-radius: .8rem;
+
+  color: var(--light);
+  /* background: rgba(0, 0, 0, 0.322); */
+  /* box-shadow: .4rem .4rem 2.4rem .2rem hsla(236, 50%, 50%, 0.3); */
+  position: relative;
+
+  overflow: hidden;
+}
+
+.modal__details {
+  text-align: center;
+
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid hsla(0, 0%, 100%, .4);
+}
+
+.modal__title {
+  font-size: 3.2rem;
+}
+
+.modal__description {
+  margin-top: 2rem;
+
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+.modal__text {
+  padding: 0 4rem;
+  margin-bottom: 4rem;
+
+  font-size: 1.6rem;
+  line-height: 2;
+}
+
+.modal__text::before {
+  content: '';
+
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+
+  width: 18rem;
+  height: 18rem;
+  border: 1px solid hsla(0, 0%, 100%, .2);
+  border-radius: 100rem;
+
+  pointer-events: none;
+}
+
+.modal__btn {
+  padding: 1rem 1.6rem;
+  border: 1px solid hsla(0, 0%, 100%, .4);
+  border-radius: 100rem;
+
+  color: inherit;
+  background: transparent;
+  font-size: 1.4rem;
+  font-family: inherit;
+  letter-spacing: .2rem;
+
+  transition: .2s;
+  cursor: pointer;
+}
+
+.modal__btn:hover,
+.modal__btn:focus {
+  border-color: hsla(0, 0%, 100%, .6);
+  transform: translateY(-.2rem);
+}
+
+/* links */
+/* =============================================== */
+.link-1 {
+  font-size: 1.8rem;
+
+  color: var(--light);
+  background: var(--background);
+  box-shadow: .4rem .4rem 2.4rem .2rem hsla(236, 50%, 50%, 0.3);
+  border-radius: 100rem;
+  padding: 1.4rem 3.2rem;
+
+  transition: .2s;
+}
+
+.link-1:hover,
+.link-1:focus {
+  transform: translateY(-.2rem);
+  box-shadow: 0 0 4.4rem .2rem hsla(236, 50%, 50%, 0.4);
+}
+
+.link-2 {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid hsla(0, 0%, 100%, .4);
+  border-radius: 100rem;
+
+  color: inherit;
+  font-size: 2.2rem;
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: .2s;
+}
+
+.link-2::before {
+  content: '×';
+
+  transform: translateY(-.1rem);
+}
+
+.link-2:hover,
+.link-2:focus {
+  border-color: hsla(0, 0%, 100%, .6);
+  transform: translateY(-.2rem);
+}
+
+/* Second Version Link */
+/* =============================================== */
+.second-version-link,
+.second-version-link:link {
+  color: hsl(236, 50%, 50%);
+  padding: .8rem 1.6rem .8rem .2rem;
+  border-bottom: 2px solid hsl(236, 50%, 50%);
+
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+}
+
+.second-version-link::after {
+  content: '\2197';
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  font-size: .9em;
+}
+
+.abs-site-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: hsla(0, 0%, 0%, .6);
+  font-size: 1.6rem;
+}
+</style>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+        VediaTagByAtul
+    </div>
+  </div>
+  <div class="modal-container " id="modal-opened">
+    <div class="modal ">
+  
+      <div class="modal__details border-0">
+        <div class="videocontainer">
+         <div id="videocontainer"></div>
+        </div>
+      <a href="#" id="closeModel" class="link-2"></a>
+  
+    </div>
+  </div>
+<script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+  <script>  
+  $("a[id^='card']").click(function(){
+    $('#modal-opened').addClass("d-flex");
+    $('.modal').addClass('d-block')
+    var link = $(this).attr('data');
+    $('#videocontainer').html(`
+    <video
+            id="my-video"
+            class="video-js vjs-theme-fantasy"
+            controls
+            preload="auto"
+            width="640"
+            height="264"
+            fluid="true"
+            poster=""
+            data-setup="{}"
+            controlsList="nodownload"
+            style="width:100%;height:100%"
+          >
+            <source id="videoLink" src="`+link+`" type="video/mp4" />
+            <p class="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a
+              web browser that
+              <a href="https://videojs.com/html5-video-support/" target="_blank"
+                >supports HTML5 video</a>
+            </p>
+          </video>
+    `);
+    
+  });
+  $('#closeModel').click(function(){
+    $('#modal-opened').removeClass("d-flex").addClass('d-none');
+    $('.modal').removeClass('d-block').addClass('d-none')
+  })
+  $(document).on("contextmenu",function(){
+       return false;
+    }); 
+    $(document).bind('copy paste', function(e) {
+        return false;
+    });
+    document.onkeydown=function(e)
+        {
+        if(e.which == 17)
+        isCtrl=true;
+        if(((e.which == 85) ||(e.which == 61) ||(e.which == 107) ||(e.which == 173) || (e.which == 117) || (e.which == 65) || (e.which == 97) || (e.which == 67) || (e.which == 99)) && isCtrl == true)
+        {
+           
+        return false;
+        }
+        }
+        document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey) {
+        event.preventDefault();
+        return false;
+    }   
+});
+  </script>
+  
+</body>
+
+
+</html>

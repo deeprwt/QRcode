@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+        }
+        iframe{
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+   <iframe src="PDFFILEPATH"></iframe> 
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+   <script>
+          document.onkeydown=function(e)
+        {
+        if(e.which == 17)
+        isCtrl=true;
+        if(((e.which == 85) || (e.which == 117) || (e.which == 65) || (e.which == 97) || (e.which == 67) || (e.which == 99)) && isCtrl == true)
+        {
+          
+        return false;
+        }
+        }
+        $(document).on("contextmenu",function(){
+           
+       return false;
+    }); 
+    $(document).on('keydown', function(e) {
+    if((e.ctrlKey || e.metaKey) && (e.key == "p" || e.charCode == 16 || e.charCode == 112 || e.keyCode == 80) ){
+      
+        e.cancelBubble = true;
+        e.preventDefault();
+
+        e.stopImmediatePropagation();
+    }  
+});
+   </script>
+</body>
+</html>

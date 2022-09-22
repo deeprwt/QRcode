@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eupheus Learning</title>
+
+  <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+
+  <!-- Fantasy -->
+  <link href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css" rel="stylesheet">
+</head>
+<style type="text/css">
+body{
+  margin: 0 0.5em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://skool.ai/bucket/PreSchoolURL/Zoom/bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.videocontainer{
+  width: 100%;
+  max-width: 750px;
+  aspect-ratio: 16/9;
+}
+</style>
+<body>
+  <div class="videocontainer">
+    <video
+      id="my-video"
+      class="video-js vjs-theme-fantasy"
+      controls
+      preload="auto"
+      width="640"
+      height="264"
+      fluid="true"
+      poster=""
+      data-setup="{}"
+      controlsList="nodownload"
+    >
+      <source id="videoLink" src="mediaFileUrlByAtul" type="video/mp4" />
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank"
+          >supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+<script>
+       $(document).on("contextmenu",function(){
+       return false;
+    }); 
+    $(document).bind('copy paste', function(e) {
+        return false;
+    });
+    document.onkeydown=function(e)
+        {
+        if(e.which == 17)
+        isCtrl=true;
+        if(((e.which == 85) ||(e.which == 61) ||(e.which == 107) ||(e.which == 173) || (e.which == 117) || (e.which == 65) || (e.which == 97) || (e.which == 67) || (e.which == 99)) && isCtrl == true)
+        {
+           
+        return false;
+        }
+        }
+        document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey) {
+        event.preventDefault();
+        return false;
+    }   
+});
+
+
+</script>
+</html>
